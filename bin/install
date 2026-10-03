@@ -1,0 +1,21 @@
+#!/usr/bin/env bash
+set -euo pipefail
+# shellcheck source=../lib/utils.bash
+. "$(dirname "$0")/../lib/utils.bash"
+[[ -n "${ASDF_INSTALL_PATH:-}" && -n "${ASDF_DOWNLOAD_PATH:-}" ]] || fail "asdf install paths are not set"
+
+# The install keeps the whole built tree: `diamond build` locates the Makefile
+# and runtime sources by walking up from its own executable.
+mkdir -p "$ASDF_INSTALL_PATH"
+cp -R "$ASDF_DOWNLOAD_PATH"/. "$ASDF_INSTALL_PATH"/
+cd "$ASDF_INSTALL_PATH"
+make=$(make_cmd)
+n=$(jobs)
+if ! "$make" -j"$n" release || ! "$make" -j"$n" facet lsp dap; then
+    rm -rf "$ASDF_INSTALL_PATH"
+    fail "build failed. Diamond needs a C23 compiler (GCC 14+ or Clang 18+) and the development
+headers for OpenSSL, SQLite, PostgreSQL (libpq), MariaDB, zlib, and libcrypt.
+See $REPO_URL#readme for per-platform package lists."
+fi
+rm -f build/run_cases
+"$ASDF_INSTALL_PATH/build/diamond" --version

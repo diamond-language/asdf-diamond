@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+set -euo pipefail
+# shellcheck source=../lib/utils.bash
+. "$(dirname "$0")/../lib/utils.bash"
+[[ -n "${ASDF_DOWNLOAD_PATH:-}" ]] || fail "ASDF_DOWNLOAD_PATH is not set"
+mkdir -p "$ASDF_DOWNLOAD_PATH"
+if [[ "${ASDF_INSTALL_TYPE:-version}" == ref ]]; then
+    # `mise use asdf:...@ref:main` builds any branch, tag, or commit.
+    git clone --quiet "$REPO_URL" "$ASDF_DOWNLOAD_PATH"
+    git -C "$ASDF_DOWNLOAD_PATH" checkout --quiet "$ASDF_INSTALL_VERSION"
+else
+    curl -fsSL "$REPO_URL/archive/refs/tags/v$ASDF_INSTALL_VERSION.tar.gz" |
+        tar -xz -C "$ASDF_DOWNLOAD_PATH" --strip-components=1
+fi
