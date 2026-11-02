@@ -13,7 +13,7 @@ make=$(make_cmd)
 n=$(jobs)
 if ! "$make" -j"$n" release || ! "$make" -j"$n" facet lsp dap; then
     rm -rf "$ASDF_INSTALL_PATH"
-    fail "build failed. Diamond needs a C23 compiler (GCC 15+ or Clang 19+) and the development
+    fail "build failed. d6 needs a C23 compiler (GCC 15+ or Clang 19+) and the development
 headers for OpenSSL, SQLite, PostgreSQL (libpq), MariaDB, zlib, and libcrypt.
 See $REPO_URL#readme for per-platform package lists."
 fi
