@@ -48,7 +48,6 @@ A `ref:` install is built once, from the commit `main` pointed to at the time, a
 mise install -f diamond@ref:main
 ```
 
-
 Either way you get `d6`, `facet` (the package manager), `d6-lsp` and
 `d6-dap` on your `PATH` (0.22.0 and older: `diamond`, `diamond-lsp` and
 `diamond-dap`). The install keeps the whole built tree, because
