@@ -32,6 +32,23 @@ mise use -g diamond@latest
 mise use -g diamond@ref:main   # or build any branch, tag or commit
 ```
 
+To switch between the latest release and a development build of `main`, install both
+and pick one with `mise use` (globally with `-g`, or per project):
+
+```sh
+mise install diamond@latest diamond@ref:main
+mise use -g diamond@latest     # latest release
+mise use -g diamond@ref:main   # main, reports e.g. `d6 0.27.0-dev`
+```
+
+A `ref:` install is built once, from the commit `main` pointed to at the time, and
+`mise upgrade` leaves it alone. Rebuild it to pick up newer commits:
+
+```sh
+mise install -f diamond@ref:main
+```
+
+
 Either way you get `d6`, `facet` (the package manager), `d6-lsp` and
 `d6-dap` on your `PATH` (0.22.0 and older: `diamond`, `diamond-lsp` and
 `diamond-dap`). The install keeps the whole built tree, because
