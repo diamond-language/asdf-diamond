@@ -2,8 +2,9 @@
 
 An [asdf](https://asdf-vm.com) and [mise](https://mise.jdx.dev) plugin for
 [d6](https://github.com/diamond-language/diamond) (formerly Diamond). It builds d6 from
-source: each version is a `vX.Y.Z` tag in the d6 repository. The plugin and tool
-are still called `diamond` until the repositories move.
+source: each version is a `vX.Y.Z` tag in the d6 repository. Install it under the name
+`d6`; the name is yours to pick, and the commands below assume `d6`. The repository is
+still called asdf-diamond until the repositories move.
 
 ## Requirements
 
@@ -19,33 +20,36 @@ are still called `diamond` until the repositories move.
 asdf:
 
 ```sh
-asdf plugin add diamond https://github.com/diamond-language/asdf-diamond.git
-asdf install diamond 0.26.0    # `asdf list all diamond` shows every version
-asdf set -u diamond 0.26.0     # asdf 0.16+; older asdf: asdf global diamond 0.26.0
+asdf plugin add d6 https://github.com/diamond-language/asdf-diamond.git
+asdf install d6 0.26.0    # `asdf list all d6` shows every version
+asdf set -u d6 0.26.0     # asdf 0.16+; older asdf: asdf global d6 0.26.0
 ```
 
 mise:
 
 ```sh
-mise plugins install diamond https://github.com/diamond-language/asdf-diamond.git
-mise use -g diamond@latest
-mise use -g diamond@ref:main   # or build any branch, tag or commit
+mise plugins install d6 https://github.com/diamond-language/asdf-diamond.git
+mise use -g d6@latest
+mise use -g d6@ref:main   # or build any branch, tag or commit
 ```
+
+Installed the plugin as `diamond` before? Add it again as `d6`: versions are kept per
+plugin name, so install them under `d6` too, then `mise plugins uninstall diamond`.
 
 To switch between the latest release and a development build of `main`, install both
 and pick one with `mise use` (globally with `-g`, or per project):
 
 ```sh
-mise install diamond@latest diamond@ref:main
-mise use -g diamond@latest     # latest release
-mise use -g diamond@ref:main   # main, reports e.g. `d6 0.27.0-dev`
+mise install d6@latest d6@ref:main
+mise use -g d6@latest     # latest release
+mise use -g d6@ref:main   # main, reports e.g. `d6 0.27.0-dev`
 ```
 
 A `ref:` install is built once, from the commit `main` pointed to at the time, and
 `mise upgrade` leaves it alone. Rebuild it to pick up newer commits:
 
 ```sh
-mise install -f diamond@ref:main
+mise install -f d6@ref:main
 ```
 
 Either way you get `d6`, `facet` (the package manager), `d6-lsp` and
