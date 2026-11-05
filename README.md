@@ -20,8 +20,8 @@ asdf:
 
 ```sh
 asdf plugin add diamond https://github.com/diamond-language/asdf-diamond.git
-asdf install diamond 0.25.0    # `asdf list all diamond` shows every version
-asdf set -u diamond 0.25.0     # asdf 0.16+; older asdf: asdf global diamond 0.25.0
+asdf install diamond 0.26.0    # `asdf list all diamond` shows every version
+asdf set -u diamond 0.26.0     # asdf 0.16+; older asdf: asdf global diamond 0.26.0
 ```
 
 mise:
