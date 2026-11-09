@@ -21,8 +21,8 @@ asdf:
 
 ```sh
 asdf plugin add d6 https://github.com/diamond-language/asdf-diamond.git
-asdf install d6 0.28.0    # `asdf list all d6` shows every version
-asdf set -u d6 0.28.0     # asdf 0.16+; older asdf: asdf global d6 0.28.0
+asdf install d6 0.29.0    # `asdf list all d6` shows every version
+asdf set -u d6 0.29.0     # asdf 0.16+; older asdf: asdf global d6 0.29.0
 ```
 
 mise:
@@ -42,7 +42,7 @@ and pick one with `mise use` (globally with `-g`, or per project):
 ```sh
 mise install d6@latest d6@ref:main
 mise use -g d6@latest     # latest release
-mise use -g d6@ref:main   # main, reports e.g. `d6 0.29.0-dev`
+mise use -g d6@ref:main   # main, reports e.g. `d6 0.30.0-dev`
 ```
 
 A `ref:` install is built once, from the commit `main` pointed to at the time, and
