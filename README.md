@@ -21,8 +21,8 @@ asdf:
 
 ```sh
 asdf plugin add d6 https://github.com/diamond-language/asdf-diamond.git
-asdf install d6 0.29.0    # `asdf list all d6` shows every version
-asdf set -u d6 0.29.0     # asdf 0.16+; older asdf: asdf global d6 0.29.0
+asdf install d6 1.0.0-rc1    # `asdf list all d6` shows every version
+asdf set -u d6 1.0.0-rc1     # asdf 0.16+; older asdf: asdf global d6 1.0.0-rc1
 ```
 
 mise:

@@ -12,8 +12,12 @@ fail() {
 list_versions() {
     git ls-remote --tags --refs "$REPO_URL" 'v*' |
         sed -E 's#.*refs/tags/v##' |
-        grep -E '^[0-9]+\.[0-9]+\.[0-9]+$' |
-        sort -t. -k1,1n -k2,2n -k3,3n
+        grep -E '^[0-9]+\.[0-9]+\.[0-9]+(-[0-9A-Za-z.]+)?$' |
+        # A pre-release (1.0.0-rc1) sorts before its release: give releases a "-~"
+        # suffix, which compares after any letter, then strip it.
+        sed -E 's/^([0-9]+\.[0-9]+\.[0-9]+)$/\1-~/' |
+        LC_ALL=C sort -t. -k1,1n -k2,2n -k3,3n -k3,3 |
+        sed 's/-~$//'
 }
 
 jobs() {
