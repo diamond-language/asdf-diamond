@@ -1,7 +1,7 @@
 # asdf-diamond
 
 An [asdf](https://asdf-vm.com) and [mise](https://mise.jdx.dev) plugin for
-[d6](https://github.com/diamond-language/diamond) (formerly Diamond). It builds d6 from
+[d6](https://github.com/diamond-language/d6) (formerly Diamond). It builds d6 from
 source: each version is a `vX.Y.Z` tag in the d6 repository. Install it under the name
 `d6`; the name is yours to pick, and the commands below assume `d6`. The repository is
 still called asdf-diamond until the repositories move.
@@ -13,7 +13,7 @@ still called asdf-diamond until the repositories move.
 - Development headers for OpenSSL, SQLite, PostgreSQL (libpq), MariaDB
   Connector/C, zlib and libcrypt. The per-platform package lists are in
   d6's
-  [CONTRIBUTING.md](https://github.com/diamond-language/diamond/blob/main/CONTRIBUTING.md#build-and-test).
+  [CONTRIBUTING.md](https://github.com/diamond-language/d6/blob/main/CONTRIBUTING.md#build-and-test).
 
 ## Install
 
@@ -59,7 +59,7 @@ Either way you get `d6`, `facet` (the package manager), `d6-lsp` and
 executables with by walking up from its own executable.
 
 Then follow d6's
-[getting-started guide](https://github.com/diamond-language/diamond/blob/main/docs/getting-started.md).
+[getting-started guide](https://github.com/diamond-language/d6/blob/main/docs/getting-started.md).
 
 ## License
 

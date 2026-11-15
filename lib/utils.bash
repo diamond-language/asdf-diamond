@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-REPO_URL="https://github.com/diamond-language/diamond"
+REPO_URL="https://github.com/diamond-language/d6"
 
 fail() {
     echo "asdf-diamond: $*" >&2
