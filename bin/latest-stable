@@ -2,4 +2,7 @@
 set -euo pipefail
 # shellcheck source=../lib/utils.bash
 . "$(dirname "$0")/../lib/utils.bash"
-list_versions | tail -n 1
+# The newest release, never a pre-release (1.0.0-rc7, 1.1.0-beta1): `latest` means an
+# actual release. An optional argument keeps only versions starting with it
+# (`asdf latest d6 0.2` gives the newest 0.2x release).
+list_versions | awk -v prefix="${1:-}" 'index($0, "-") == 0 && index($0, prefix) == 1' | tail -n 1
