@@ -21,9 +21,12 @@ asdf:
 
 ```sh
 asdf plugin add d6 https://github.com/diamond-language/asdf-diamond.git
-asdf install d6 1.0.0-rc1    # `asdf list all d6` shows every version
-asdf set -u d6 1.0.0-rc1     # asdf 0.16+; older asdf: asdf global d6 1.0.0-rc1
+asdf install d6 latest      # `asdf list all d6` shows every version
+asdf set -u d6 latest       # asdf 0.16+; older asdf: asdf global d6 latest
 ```
+
+`latest` is the newest actual release and never a pre-release. Install a release
+candidate or beta by its full version, for example `1.0.0-rc7`.
 
 mise:
 
