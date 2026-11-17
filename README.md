@@ -6,11 +6,19 @@ source: each version is a `vX.Y.Z` tag in the d6 repository. Install it under th
 `d6`; the name is yours to pick, and the commands below assume `d6`. The repository is
 still called asdf-diamond until the repositories move.
 
+mise can also install d6 without this plugin, from the prebuilt release tarballs:
+`mise use -g github:diamond-language/d6`. That needs no compiler, but runs only on glibc
+Linux, and mise offers each release a day after it's published. This plugin compiles every
+version (a few minutes, with the requirements below), but works wherever d6 builds and has
+a release as soon as it's tagged. d6's
+[getting started](https://github.com/diamond-language/d6/blob/main/docs/getting-started.md#1-install)
+compares every way of installing.
+
 ## Requirements
 
 - GCC 15+ or Clang 19+ (d6 is C23 and uses `#embed`), `make`, `git`,
   `curl` and `tar`.
-- Development headers for OpenSSL, SQLite, PostgreSQL (libpq), MariaDB
+- Development headers for OpenSSL (3 or 4), SQLite, PostgreSQL (libpq), MariaDB
   Connector/C, zlib and libcrypt. The per-platform package lists are in
   d6's
   [CONTRIBUTING.md](https://github.com/diamond-language/d6/blob/main/CONTRIBUTING.md#build-and-test).
